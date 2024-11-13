@@ -35,17 +35,44 @@ function updateCartCount() {
 // Checkout button functionality
 document.getElementById('checkout').addEventListener('click', function() {
     const paymentMethod = document.getElementById('payment-method').value;
-    // const pay=document.getElementById("pay-button").value;
-    
+    const account=document.getElementById('account').value;
+    const price =document.getElementById('price').value;
 
     if (paymentMethod) {
-        alert('confirm payment.');
-        alert(`Checkout complete! Total: $${totalPrice.toFixed(2)}. Payment Method: ${paymentMethod}`);
+      account.value=="" , price.value=="";
+      alert('enter account number and total price')
+
+      let accountValue = 100;  // The current value of the account
+let requiredAmount = 100; // The required amount to trigger the payment confirmation
+
+// Check if the account value matches the required amount
+if (accountValue === requiredAmount) {
+  // If the condition is met, show a confirmation alert
+  let userConfirmed = confirm("Do you want to proceed with the payment?");
+  
+  if (userConfirmed) {
+    // User clicked 'OK', proceed with the payment
+    alert("Payment successfully processed!");
+  }}
+//  if (condition) {
+//    account.value=='value' , price.value=='value';
+//    alert('confirm payment.');
+//  } else {
+//   // account.value=='value' , price.value=='value'
+//  alert('check out complate succesfully')
+//  }{
+// //  {account.value=='value' && price.value=='value'
+//         // alert('confirm payment.');
+//         alert(`Checkout complete! Total: $${totalPrice.toFixed(2)}. Payment Method: ${paymentMethod}`);
        
-        // Reset cart after checkout
-        totalPrice = 0;
-        updateTotalPrice();
-        document.getElementById('payment-method').selectedIndex = 0; // Reset payment method
+ 
+
+
+//         // Reset cart after checkout
+//         totalPrice = 0;
+//         updateTotalPrice();
+//         document.getElementById('payment-method').selectedIndex = 0; // Reset payment method
+// }
     } else {
         alert('Please select a payment method.');
         document.getElementById('payment-method').selectedIndex = value; 
@@ -63,17 +90,6 @@ document.getElementById('checkout').addEventListener('click', function() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-3
 
 // Initial cart state
 let cartCount = 0;
@@ -131,3 +147,23 @@ updateCartCount();
 
 
 
+// Define the account value and the payment method
+let accountValue = 100;  // The current value of the account
+let requiredAmount = 100; // The required amount to trigger the payment confirmation
+
+// Check if the account value matches the required amount
+if (accountValue === requiredAmount) {
+  // If the condition is met, show a confirmation alert
+  let userConfirmed = confirm("Do you want to proceed with the payment?");
+  
+  if (userConfirmed) {
+    // User clicked 'OK', proceed with the payment
+    alert("Payment successfully processed!");
+  } else {
+    // User clicked 'Cancel', do not proceed
+    alert("Payment was cancelled.");
+  }
+} else {
+  // If the account value does not match, show an error or a different message
+  alert("Insufficient balance or incorrect amount. Please check your account.");
+}
